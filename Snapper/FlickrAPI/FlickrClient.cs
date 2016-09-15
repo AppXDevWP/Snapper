@@ -18,12 +18,26 @@ namespace Snapper.FlickrAPI
             return response;
         }
 
-        public static List<XElement> parseXml(string xml)
+        public static List<XElement> parseXml(string xml, string header)
         {
             XElement xmlitems = XElement.Parse(xml);
-            List<XElement> elements = xmlitems.Descendants("photos").ToList();
+            List<XElement> elements = xmlitems.Descendants(header).ToList();
 
             return elements;
+        }
+
+        public static string getImageUrl(string id, string server_id, string secret, string farm_id, string size = "z")
+        {
+            if (size.Equals("q") || size.Equals("n") || size.Equals("z") || size.Equals("h") || size.Equals("o"))
+            {
+                var url = "https://farm" + farm_id + ".staticflickr.com/" + server_id + "/" + id + "_" + secret + "_" + size + ".jpg";
+
+                return url;
+            }
+            else
+            {
+                return "";
+            }
         }
     }
 }
