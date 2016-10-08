@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Snapper.FlickrAPI
-{
-    public class FlickrImage
-    {
+namespace Snapper.API {
+    public class FlickrImage {
         public string id { get; set; }
 
         public string owner { get; set; }
@@ -26,8 +24,7 @@ namespace Snapper.FlickrAPI
 
         public string description { get; set; }
 
-        public FlickrImage()
-        {
+        public FlickrImage() {
             id = "";
             owner = "";
             title = "";
